@@ -3,7 +3,7 @@ title: 写 Skill
 created: 2026-05-19
 updated: 2026-05-19
 type: concept
-order: 2
+order: 5
 tags: [skill, practice, intermediate]
 confidence: high
 contested: false
