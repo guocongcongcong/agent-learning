@@ -1,0 +1,11 @@
+{
+	"id": "notion-bases",
+	"name": "Notion Bases",
+	"version": "1.8.0",
+	"minAppVersion": "1.4.0",
+	"description": "Turn any folder into a database — table, kanban board, gallery, calendar, timeline and list views powered by frontmatter.",
+	"author": "bgarciamoura",
+	"authorUrl": "https://github.com/bgarciamoura",
+	"isDesktopOnly": false,
+	"fundingUrl": "https://github.com/sponsors/bgarciamoura"
+}
