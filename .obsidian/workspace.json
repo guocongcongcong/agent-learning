@@ -20,35 +20,21 @@
             }
           },
           {
-            "id": "0d19b3320159e5b6",
+            "id": "4633872d7217ad2c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "concepts/工具与MCP.md",
+                "file": "concepts/LilianWeng-Agent综述.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "工具与MCP"
-            }
-          },
-          {
-            "id": "c165561d0546c2b8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "concepts/Anthropic-构建高效Agent.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Anthropic-构建高效Agent"
+              "title": "LilianWeng-Agent综述"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -208,22 +194,29 @@
       "bases:新建数据库": false
     }
   },
-  "active": "c165561d0546c2b8",
+  "active": "4633872d7217ad2c",
   "lastOpenFiles": [
-    "AI-Agent开发学习指南.epub",
+    "concepts/Anthropic-构建高效Agent.md",
+    "projects/harness-engineering-from-cc-to-ai-coding/book-en/src/SUMMARY.md",
+    "projects/minimal-agent/README.md",
+    "concepts-xmind/驾驭工程.xmind",
+    "concepts-xmind/理解Agent.xmind",
+    "concepts-xmind/工具与MCP.xmind",
+    "concepts-xmind/学习路线总览.xmind",
+    "concepts-xmind/写Skill.xmind",
+    "concepts-xmind/上下文工程.xmind",
+    "concepts-xmind/OpenAI-Agents-SDK指南.xmind",
+    "concepts-xmind/LilianWeng-Agent综述.xmind",
+    "concepts-xmind/Anthropic-构建高效Agent.xmind",
+    "concepts-xmind",
     "concepts/工具与MCP.md",
     "concepts/理解Agent.md",
     "concepts/OpenAI-Agents-SDK指南.md",
     "concepts/LilianWeng-Agent综述.md",
-    "concepts/Anthropic-构建高效Agent.md",
     "projects/harness-engineering-from-cc-to-ai-coding/book/src/part1/ch01.md",
     "skills/Agent Loop 学习总结.md",
     "skills/马书导读.md",
     "concepts/学习路线总览.md",
-    "concepts/_database.md",
-    "未命名 3.base",
-    "未命名 2.base",
-    "未命名 1.base",
-    "未命名.base"
+    "concepts/_database.md"
   ]
 }

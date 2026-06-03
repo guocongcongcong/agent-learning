@@ -1,0 +1,866 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "agent-learning-vault",
+    "languages": [
+      "css",
+      "javascript",
+      "json",
+      "markdown"
+    ],
+    "frameworks": [],
+    "description": "这是一个基于 Obsidian 的知识库工作台，用于系统学习 AI Agent 开发。它提供了四阶段学习路径：通过概念文档（如Agent原理、Skill编写、MCP工具）建立理论基础，分析真实项目源码（包括Claude Code架构、Agent脚手架、微信读书CLI）加深理解，通过撰写笔记拆解Skill模式来巩固知识，最后动手构建自己的自动化Skill。",
+    "analyzedAt": "2026-05-23T04:42:38.507828+00:00",
+    "gitCommitHash": "529e417f07cb8bd9a7e8c6314b5af1259fe4f335"
+  },
+  "nodes": [
+    {
+      "id": "config:.obsidian/app.json",
+      "type": "config",
+      "name": "app.json",
+      "filePath": ".obsidian/app.json",
+      "summary": "Obsidian 应用级别的空配置文件，尚未自定义任何行为设置。",
+      "tags": [
+        "configuration",
+        "obsidian"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.obsidian/appearance.json",
+      "type": "config",
+      "name": "appearance.json",
+      "filePath": ".obsidian/appearance.json",
+      "summary": "Obsidian 外观设置的空配置文件，尚未配置主题或界面风格。",
+      "tags": [
+        "configuration",
+        "obsidian",
+        "appearance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.obsidian/community-plugins.json",
+      "type": "config",
+      "name": "community-plugins.json",
+      "filePath": ".obsidian/community-plugins.json",
+      "summary": "声明 Notion Bases 社区插件为 vault 中唯一启用的第三方插件。",
+      "tags": [
+        "configuration",
+        "obsidian",
+        "plugin"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.obsidian/core-plugins.json",
+      "type": "config",
+      "name": "core-plugins.json",
+      "filePath": ".obsidian/core-plugins.json",
+      "summary": "Obsidian 核心插件启用配置，开启了文件浏览器、搜索、图谱、反向链接、标签面板、模板等 22 个内置功能，关闭了同步、脚注等 9 个非必要插件。",
+      "tags": [
+        "configuration",
+        "obsidian",
+        "plugins"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:.obsidian/plugins/notion-bases/manifest.json",
+      "type": "config",
+      "name": "manifest.json",
+      "filePath": ".obsidian/plugins/notion-bases/manifest.json",
+      "summary": "Notion Bases 插件清单，版本 1.8.0，将任意文件夹转换为支持表格/看板/日历等视图的数据库。",
+      "tags": [
+        "configuration",
+        "plugin",
+        "manifest",
+        "obsidian"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.obsidian/templates.json",
+      "type": "config",
+      "name": "templates.json",
+      "filePath": ".obsidian/templates.json",
+      "summary": "Obsidian 模板文件夹配置，指向 Templates/ 目录。",
+      "tags": [
+        "configuration",
+        "obsidian",
+        "templates"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.obsidian/workspace.json",
+      "type": "config",
+      "name": "workspace.json",
+      "filePath": ".obsidian/workspace.json",
+      "summary": "Obsidian 工作区布局快照，记录概念文件夹的 Notion Bases 数据库视图与 Anthropic 构建高效 Agent 文档的打开状态。",
+      "tags": [
+        "configuration",
+        "obsidian",
+        "workspace",
+        "layout"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:.obsidian/plugins/notion-bases/main.js",
+      "type": "file",
+      "name": "main.js",
+      "filePath": ".obsidian/plugins/notion-bases/main.js",
+      "summary": "Notion Bases 插件的核心代码，经过 Webpack 打包压缩的 JavaScript 文件，共 99 行。实现了文件夹转数据库视图的全部逻辑。",
+      "tags": [
+        "plugin",
+        "bundle",
+        "obsidian",
+        "database-view"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Webpack 打包后的单文件插件，函数名经过 minification 压缩为短标识符，所有逻辑在单个闭包中执行。"
+    },
+    {
+      "id": "file:.obsidian/plugins/notion-bases/styles.css",
+      "type": "file",
+      "name": "styles.css",
+      "filePath": ".obsidian/plugins/notion-bases/styles.css",
+      "summary": "Notion Bases 插件的完整样式表（5600 行），定义了数据库视图的全部视觉组件，包括表格/看板/日历等视图风格以及响应式布局。",
+      "tags": [
+        "stylesheet",
+        "css",
+        "plugin",
+        "obsidian",
+        "ui"
+      ],
+      "complexity": "complex",
+      "languageNotes": "大量使用 Obsidian CSS 变量（var(--background-primary) 等）实现主题兼容，组织方式为扁平化的类选择器。"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "项目入口文档，定义四阶段学习路径：读概念（五层递进）、拆源码（三个项目）、写笔记（Skill 拆解）、造自己第一个 Skill。",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "learning-path",
+        "overview"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:Templates/concept-template.md",
+      "type": "document",
+      "name": "concept-template.md",
+      "filePath": "Templates/concept-template.md",
+      "summary": "概念笔记模板，包含前元数据（状态、标签、来源）和三个写作区块：核心概念、我的理解、相关链接。",
+      "tags": [
+        "template",
+        "documentation",
+        "obsidian",
+        "note-taking"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:Templates/skill-notes-template.md",
+      "type": "document",
+      "name": "skill-notes-template.md",
+      "filePath": "Templates/skill-notes-template.md",
+      "summary": "Skill 拆解笔记模板，包含项目来源和复杂度前元数据，以及四个分析区块：它做什么、关键代码、学到了什么、相关链接。",
+      "tags": [
+        "template",
+        "documentation",
+        "obsidian",
+        "skill-analysis"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:concepts/Anthropic-构建高效Agent.md",
+      "type": "document",
+      "name": "Anthropic-构建高效Agent.md",
+      "filePath": "concepts/Anthropic-构建高效Agent.md",
+      "summary": "Anthropic 官方指南的中文翻译，深入讲解 Workflow 与 Agent 的架构区分、增强型 LLM 构建块以及五种工作流模式（提示链、路由、并行化、编排器、评估器-优化器）。",
+      "tags": [
+        "documentation",
+        "translation",
+        "agent",
+        "anthropic",
+        "architecture"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:concepts/LilianWeng-Agent综述.md",
+      "type": "document",
+      "name": "LilianWeng-Agent综述.md",
+      "filePath": "concepts/LilianWeng-Agent综述.md",
+      "summary": "Lilian Weng 2023 年自主 Agent 综述论文的中文翻译，系统阐述 Agent 三大核心组件：规划（CoT/ToT/ReAct/Reflexion）、记忆（短期与长期）、工具使用。",
+      "tags": [
+        "documentation",
+        "translation",
+        "agent",
+        "survey",
+        "academic"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:concepts/OpenAI-Agents-SDK指南.md",
+      "type": "document",
+      "name": "OpenAI-Agents-SDK指南.md",
+      "filePath": "concepts/OpenAI-Agents-SDK指南.md",
+      "summary": "OpenAI Agents SDK 官方指南的中文翻译，详解三个核心原语（Agent、Agent 移交、护栏）及追踪、会话、实时 Agent 等高级功能。",
+      "tags": [
+        "documentation",
+        "translation",
+        "agent",
+        "openai",
+        "sdk"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:concepts/_database.md",
+      "type": "document",
+      "name": "_database.md",
+      "filePath": "concepts/_database.md",
+      "summary": "概念文件夹的 Notion Bases 数据库定义，配置了顺序/学习状态/标签/可信度/创建时间/更新时间六个字段以及表格和看板两种视图。",
+      "tags": [
+        "documentation",
+        "database-view",
+        "obsidian",
+        "notion-bases"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:concepts/上下文工程.md",
+      "type": "document",
+      "name": "上下文工程.md",
+      "filePath": "concepts/上下文工程.md",
+      "summary": "上下文工程（Context Engineering）的完整教程，涵盖 Context Window 分区模型、按需注入策略、压缩与精简技巧以及 CLAUDE.md 等实践模式。",
+      "tags": [
+        "documentation",
+        "context-engineering",
+        "agent",
+        "tutorial"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:concepts/写Skill.md",
+      "type": "document",
+      "name": "写Skill.md",
+      "filePath": "concepts/写Skill.md",
+      "summary": "Skill 编写的实操指南，从最小结构（Name/Description/触发条件/操作步骤）到五条铁律（触发明确、步骤可测、路径完整、边界清晰、不断迭代）。",
+      "tags": [
+        "documentation",
+        "skill",
+        "tutorial",
+        "practice"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:concepts/学习路线总览.md",
+      "type": "document",
+      "name": "学习路线总览.md",
+      "filePath": "concepts/学习路线总览.md",
+      "summary": "五层递进的学习路线总览，规划了从理解 Agent 到驾驭工程的四个阶段共八周的学习节奏。",
+      "tags": [
+        "documentation",
+        "learning-path",
+        "guide",
+        "roadmap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:concepts/工具与MCP.md",
+      "type": "document",
+      "name": "工具与MCP.md",
+      "filePath": "concepts/工具与MCP.md",
+      "summary": "工具设计与 MCP（Model Context Protocol）的完整指南，涵盖好工具的四个标准、MCP 协议的四层架构以及从零构建工具的实战案例。",
+      "tags": [
+        "documentation",
+        "tool-design",
+        "mcp",
+        "tutorial"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:concepts/理解Agent.md",
+      "type": "document",
+      "name": "理解Agent.md",
+      "filePath": "concepts/理解Agent.md",
+      "summary": "Agent 概念入门文档，以 Agent Loop（思考→行动→观察）为核心，剖析 LLM 配置、工具系统、记忆管理等核心组件。",
+      "tags": [
+        "documentation",
+        "agent",
+        "concept",
+        "beginner",
+        "tutorial"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:concepts/驾驭工程.md",
+      "type": "document",
+      "name": "驾驭工程.md",
+      "filePath": "concepts/驾驭工程.md",
+      "summary": "驾驭工程（Harness Engineering）六层架构的深度解析，从上下文管理到约束校验逐层拆解，并结合 Claude Code 源码实例讲解。",
+      "tags": [
+        "documentation",
+        "harness-engineering",
+        "architecture",
+        "advanced"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:skills/Agent Loop 学习总结.md",
+      "type": "document",
+      "name": "Agent Loop 学习总结.md",
+      "filePath": "skills/Agent Loop 学习总结.md",
+      "summary": "基于《马书》第 3 章的 Agent Loop 学习笔记，深入分析 queryLoop() 的八阶段设计，重点关注显式状态重建和模型降级等关键机制。",
+      "tags": [
+        "documentation",
+        "learning-note",
+        "agent-loop",
+        "harness-engineering"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:skills/_database.md",
+      "type": "document",
+      "name": "_database.md",
+      "filePath": "skills/_database.md",
+      "summary": "Skill 笔记文件夹的 Notion Bases 数据库定义，配置了状态/来源项目/复杂度/标签/创建时间/更新时间六个字段以及表格和拆解看板两种视图。",
+      "tags": [
+        "documentation",
+        "database-view",
+        "obsidian",
+        "notion-bases"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:skills/awesome-harness-engineering-笔记.md",
+      "type": "document",
+      "name": "awesome-harness-engineering-笔记.md",
+      "filePath": "skills/awesome-harness-engineering-笔记.md",
+      "summary": "awesome-harness-engineering 资源列表的阅读笔记，按 Foundations/Agent Loop/Planning 等板块分类整理，提炼关键推荐和设计理念。",
+      "tags": [
+        "documentation",
+        "learning-note",
+        "harness-engineering",
+        "awesome-list"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:skills/weread-cli-拆解.md",
+      "type": "document",
+      "name": "weread-cli-拆解.md",
+      "filePath": "skills/weread-cli-拆解.md",
+      "summary": "weread-cli 项目的架构拆解笔记，分析「一个 Skill + 一个 CLI」设计模式，从 CLI 调用链到 Agent Skill 定义的全链路。",
+      "tags": [
+        "documentation",
+        "learning-note",
+        "cli",
+        "skill-pattern",
+        "weread"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:skills/马书导读.md",
+      "type": "document",
+      "name": "马书导读.md",
+      "filePath": "skills/马书导读.md",
+      "summary": "《马书》（Harness Engineering）项目导读，概述全书七篇共 30 章的结构和核心「驾驭工程」理念——模型是引擎，驾驭系统是整车。",
+      "tags": [
+        "documentation",
+        "learning-note",
+        "harness-engineering",
+        "book-guide"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:.obsidian/community-plugins.json",
+      "target": "config:.obsidian/plugins/notion-bases/manifest.json",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:.obsidian/templates.json",
+      "target": "document:Templates/concept-template.md",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:.obsidian/templates.json",
+      "target": "document:Templates/skill-notes-template.md",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:.obsidian/plugins/notion-bases/manifest.json",
+      "target": "file:.obsidian/plugins/notion-bases/main.js",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:.obsidian/plugins/notion-bases/manifest.json",
+      "target": "file:.obsidian/plugins/notion-bases/styles.css",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:.obsidian/workspace.json",
+      "target": "document:concepts/_database.md",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:.obsidian/workspace.json",
+      "target": "document:concepts/Anthropic-构建高效Agent.md",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:README.md",
+      "target": "document:concepts/学习路线总览.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "document:concepts/理解Agent.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "document:concepts/写Skill.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "document:concepts/工具与MCP.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "document:concepts/上下文工程.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "document:concepts/驾驭工程.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "document:Templates/concept-template.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "document:Templates/skill-notes-template.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:concepts/学习路线总览.md",
+      "target": "document:concepts/理解Agent.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:concepts/学习路线总览.md",
+      "target": "document:concepts/写Skill.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:concepts/学习路线总览.md",
+      "target": "document:concepts/工具与MCP.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:concepts/学习路线总览.md",
+      "target": "document:concepts/上下文工程.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:concepts/学习路线总览.md",
+      "target": "document:concepts/驾驭工程.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:concepts/_database.md",
+      "target": "document:concepts/理解Agent.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:concepts/_database.md",
+      "target": "document:concepts/写Skill.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:concepts/_database.md",
+      "target": "document:concepts/工具与MCP.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:concepts/_database.md",
+      "target": "document:concepts/上下文工程.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:concepts/_database.md",
+      "target": "document:concepts/驾驭工程.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:concepts/_database.md",
+      "target": "document:concepts/Anthropic-构建高效Agent.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:concepts/_database.md",
+      "target": "document:concepts/LilianWeng-Agent综述.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:concepts/_database.md",
+      "target": "document:concepts/OpenAI-Agents-SDK指南.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:concepts/_database.md",
+      "target": "document:concepts/学习路线总览.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:skills/_database.md",
+      "target": "document:skills/Agent Loop 学习总结.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:skills/_database.md",
+      "target": "document:skills/awesome-harness-engineering-笔记.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:skills/_database.md",
+      "target": "document:skills/weread-cli-拆解.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:skills/_database.md",
+      "target": "document:skills/马书导读.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:concepts/理解Agent.md",
+      "target": "document:skills/Agent Loop 学习总结.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:concepts/驾驭工程.md",
+      "target": "document:skills/awesome-harness-engineering-笔记.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:concepts/驾驭工程.md",
+      "target": "document:skills/马书导读.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:concepts/工具与MCP.md",
+      "target": "document:skills/weread-cli-拆解.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:concepts/写Skill.md",
+      "target": "document:skills/weread-cli-拆解.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:concepts/驾驭工程.md",
+      "target": "document:skills/Agent Loop 学习总结.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:skills/Agent Loop 学习总结.md",
+      "target": "document:skills/马书导读.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:skills/awesome-harness-engineering-笔记.md",
+      "target": "document:skills/马书导读.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:.obsidian/core-plugins.json",
+      "target": "config:.obsidian/plugins/notion-bases/manifest.json",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:concepts",
+      "name": "概念基础层",
+      "description": "AI Agent系统学习的核心概念文档，涵盖Agent定义、工具MCP协议、上下文工程和驾驭工程等理论基础",
+      "nodeIds": [
+        "document:concepts/Anthropic-构建高效Agent.md",
+        "document:concepts/LilianWeng-Agent综述.md",
+        "document:concepts/OpenAI-Agents-SDK指南.md",
+        "document:concepts/_database.md",
+        "document:concepts/上下文工程.md",
+        "document:concepts/写Skill.md",
+        "document:concepts/学习路线总览.md",
+        "document:concepts/工具与MCP.md",
+        "document:concepts/理解Agent.md",
+        "document:concepts/驾驭工程.md"
+      ]
+    },
+    {
+      "id": "layer:skills",
+      "name": "技能拆解层",
+      "description": "真实项目源码分析与Skill模式拆解笔记，通过案例巩固Agent开发知识",
+      "nodeIds": [
+        "document:skills/Agent Loop 学习总结.md",
+        "document:skills/_database.md",
+        "document:skills/awesome-harness-engineering-笔记.md",
+        "document:skills/weread-cli-拆解.md",
+        "document:skills/马书导读.md"
+      ]
+    },
+    {
+      "id": "layer:templates",
+      "name": "文档模板层",
+      "description": "概念笔记和Skill笔记的书写模板，规范知识文档的格式结构",
+      "nodeIds": [
+        "document:Templates/concept-template.md",
+        "document:Templates/skill-notes-template.md"
+      ]
+    },
+    {
+      "id": "layer:entry",
+      "name": "项目入口层",
+      "description": "Agent学习工作台的入口文档，提供四阶段学习路径导航和全局内容索引",
+      "nodeIds": [
+        "document:README.md"
+      ]
+    },
+    {
+      "id": "layer:configuration",
+      "name": "配置与插件层",
+      "description": "Obsidian知识库的应用配置、社区插件资源及外观主题设置",
+      "nodeIds": [
+        "config:.obsidian/app.json",
+        "config:.obsidian/appearance.json",
+        "config:.obsidian/community-plugins.json",
+        "config:.obsidian/core-plugins.json",
+        "file:.obsidian/plugins/notion-bases/main.js",
+        "config:.obsidian/plugins/notion-bases/manifest.json",
+        "file:.obsidian/plugins/notion-bases/styles.css",
+        "config:.obsidian/templates.json",
+        "config:.obsidian/workspace.json"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "项目概览",
+      "description": "README.md 是 Agent 学习工作台的总入口文档，提供四阶段学习路径导航：读概念、拆项目、写笔记、造技能。从这里开始，你将了解整个知识库的结构设计和使用方法——它不是一个静态的文档集合，而是一个可交互的学习系统。",
+      "nodeIds": [
+        "document:README.md"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "学习路线总览",
+      "description": "学习路线总览文档详细描述了四阶段学习路径的完整框架。第一步阅读五篇核心概念教程建立理论基础，第二步分析真实项目源码加深理解，第三步撰写笔记拆解 Skill 模式巩固知识，第四步动手构建自己的自动化 Skill。这份文档是整个学习旅程的地图，从 README 的简短介绍进入到这里，你就能看到每一阶段的具体目标和产出物。",
+      "nodeIds": [
+        "document:concepts/学习路线总览.md"
+      ]
+    },
+    {
+      "order": 3,
+      "title": "理解Agent基础概念",
+      "description": "Agent 基础概念教程是整个知识库的理论基石。它解释了 Agent 的定义、Agent Loop 的运作机制（观察-思考-行动-观察循环）以及规划、记忆、工具使用等核心组件的职责。后续所有概念教程和 Skill 拆解笔记都建立在对本文档的理解之上——它是被引用最多的概念文档之一（fanIn: 3, fanOut: 4），在知识图谱中处于枢纽位置。",
+      "nodeIds": [
+        "document:concepts/理解Agent.md"
+      ]
+    },
+    {
+      "order": 4,
+      "title": "权威译著深化理解",
+      "description": "这三篇翻译文档分别来自 Anthropic 官方 Agent 构建指南、Lilian Weng 的 LLM Agent 综述和 OpenAI Agents SDK 官方指南。它们是对上一个步骤中 Agent 基础概念的权威补充，让你从不同角度深入理解 Agent 架构——Anthropic 侧重工程实践，Lilian Weng 提供学术视角，OpenAI SDK 则展示产品化实现思路。三篇译著之间以及与基础概念文档之间的链接关系构成了知识图谱的第一层深度拓展。",
+      "nodeIds": [
+        "document:concepts/Anthropic-构建高效Agent.md",
+        "document:concepts/LilianWeng-Agent综述.md",
+        "document:concepts/OpenAI-Agents-SDK指南.md"
+      ],
+      "languageLesson": "Obsidian 使用 [[wikilink]] 语法在文档之间建立双向链接，形成可导航的知识图谱。这些翻译文档通过 wikilink 与基础概念文档相连，当你在 Obsidian 中打开图谱视图时，可以看到概念之间的关联网络。"
+    },
+    {
+      "order": 5,
+      "title": "编写Skill的方法论",
+      "description": "Skill 编写教程是本工作台的核心生产力工具，fanIn 排名高达第 6 位（被 3 个文档引用），同时 fanOut 也位列第 5，说明它既被广泛引用又主动连接多个相关文档。它涵盖 Skill 的最小结构、五条编写铁律和实战拆解方法。掌握了这一步，你就能将日常重复性工作自动化，把前两个步骤学到的 Agent 概念转化为可执行的自动化工具。",
+      "nodeIds": [
+        "document:concepts/写Skill.md"
+      ]
+    },
+    {
+      "order": 6,
+      "title": "工具设计与MCP协议",
+      "description": "工具设计与 MCP（Model Context Protocol）协议教程讲解 Agent 如何通过工具与外部世界交互。内容包括工具设计原则（单一职责、输入输出规范、错误处理）、MCP 标准规范以及实战案例。这是连接 Agent 理论（Step 3）与 Skill 实践（Step 5）之间的桥梁——工具是 Agent 的双手，MCP 是工具的通信协议。",
+      "nodeIds": [
+        "document:concepts/工具与MCP.md"
+      ]
+    },
+    {
+      "order": 7,
+      "title": "上下文工程",
+      "description": "上下文工程教程深入讲解 Context Window 的管理策略和按需注入技术。在 Agent 开发中，如何高效利用有限的上下文窗口直接影响 Agent 的表现质量。本文档与 skills/awesome-harness-engineering-笔记.md 直接关联，将上下文工程的理论与 Harness Engineering 项目中的实际应用连接起来。",
+      "nodeIds": [
+        "document:concepts/上下文工程.md"
+      ]
+    },
+    {
+      "order": 8,
+      "title": "驾驭工程与六层架构",
+      "description": "驾驭工程教程阐述了 Agent 开发的六层架构和工程化思维方法。作为概念教程系列的最后一篇，它将前四篇概念教程（Agent 基础、Skill 编写、工具 MCP、上下文工程）的知识串联起来，帮助你建立系统化的工程认知框架。本文档还链接到 skills/马书导读.md 和 skills/awesome-harness-engineering-笔记.md，为进入下一阶段的实践分析做准备。",
+      "nodeIds": [
+        "document:concepts/驾驭工程.md"
+      ]
+    },
+    {
+      "order": 9,
+      "title": "标准化学习模板",
+      "description": "这两个模板文档规范了学习输出的格式。concept-template.md 用于记录概念学习笔记，skill-notes-template.md 用于拆解技术 Skill。skill-notes-template.md 是整个工作台中被引用最多的文档（fanIn: 4，并列第一），说明它在学习路径中处于核心枢纽位置——从概念文档（写Skill.md）、模板配置（templates.json）到多个 Skill 笔记，都引用了这个模板，体现了规范化学习的重要性。",
+      "nodeIds": [
+        "document:Templates/concept-template.md",
+        "document:Templates/skill-notes-template.md"
+      ],
+      "languageLesson": "Obsidian 模板使用 YAML frontmatter（--- 包裹的元数据块）定义文档属性如标题、标签、日期。结合 Dataview 插件，模板化的笔记可以自动聚合为数据库视图——这就是 concepts/ 和 skills/ 文件夹中 _database.md 文件的工作原理，实现知识管理的信息化。"
+    },
+    {
+      "order": 10,
+      "title": "真实项目拆解分析",
+      "description": "这两篇 Skill 笔记是学习路径中「拆解」阶段的成果展示。weread-cli-拆解.md 分析了一个微信读书 CLI 工具的项目结构、技术栈和实现细节；awesome-harness-engineering-笔记.md 则拆解了 Harness Engineering 项目的架构设计。它们展示了如何将 Step 5 中学会的 Skill 编写方法论应用到实际项目分析中，是从理论学习迈向实践分析的关键一步。两篇笔记都达到了 fanIn: 4 的最高引用级别，说明它们在知识图谱中价值显著。",
+      "nodeIds": [
+        "document:skills/weread-cli-拆解.md",
+        "document:skills/awesome-harness-engineering-笔记.md"
+      ]
+    },
+    {
+      "order": 11,
+      "title": "学习总结与进阶阅读",
+      "description": "这两篇笔记代表了学习路径中「写笔记」阶段的最高产出形式。Agent Loop 学习总结.md 通过真实案例梳理 Agent 循环机制的核心要点，与 Step 3 的 Agent 基础概念形成理论-实践对照；马书导读.md 则为《驾驭工程》一书提供阅读指南和核心观点提炼，与 Step 8 的驾驭工程文档呼应。两篇笔记标志着从外部知识输入到内部知识重构的完整转化。",
+      "nodeIds": [
+        "document:skills/Agent Loop 学习总结.md",
+        "document:skills/马书导读.md"
+      ]
+    },
+    {
+      "order": 12,
+      "title": "Obsidian工作台配置解析",
+      "description": "这些配置文件定义了 Obsidian 工作台的基础运行环境。workspace.json 控制工作区布局（侧边栏、标签页、数据库视图的位置），app.json 和 core-plugins.json 管理核心功能开关，community-plugins.json 激活 Notion Bases 等社区插件实现数据库视图功能。这些配置让散落的 Markdown 文件变成可浏览、可搜索、可交互的学习环境——是整个四阶段学习路径得以流畅运行的基础设施。",
+      "nodeIds": [
+        "config:.obsidian/workspace.json",
+        "config:.obsidian/app.json",
+        "config:.obsidian/core-plugins.json",
+        "config:.obsidian/community-plugins.json"
+      ]
+    }
+  ]
+}
